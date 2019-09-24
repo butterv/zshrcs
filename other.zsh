@@ -28,4 +28,6 @@ alias czshrc='cat ~/.zshrc'
 # export PATH="$PATH:$HOME/development/flutter/bin"
 
 echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
-function chpwd() { echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"}
+function chpwd() {
+	echo -ne "\033]0;$(pwd | rev | awk -F \/ '{print "/"$1"/"$2}'| rev)\007"
+}
