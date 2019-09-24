@@ -19,8 +19,6 @@ alias docker-stop-all='docker stop $(docker ps -q)'
 source <(kubectl completion zsh)
 
 export EDITOR="vim"
-alias vzshrc='vim ~/.zshrc'
-alias czshrc='cat ~/.zshrc'
 
 # eval "$(direnv hook bash)"
 # source /usr/local/etc/bash_completion.d/git-prompt.sh
