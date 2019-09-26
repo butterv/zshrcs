@@ -26,3 +26,5 @@ alias gitrpo='git remote prune origin'
 alias hbr='hub browse'
 alias gcd='cd $(ghq root)/$(ghq list | peco)'
 alias istsh='cd $GOPATH/src/github.com/istsh'
+
+alias gitdioo='sh $HOME/git/istsh/commands/git-diff-read-one-by-one.sh'
