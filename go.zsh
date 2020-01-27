@@ -23,3 +23,8 @@ function pb-gw-gen() {
 	# pb-gw-gen ./app/proto/v1 user.proto
 	protoc -I$1 -I$GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.11.3/third_party/googleapis --grpc-gateway_out=logtostderr=true:$1/pb $2
 }
+
+function go-test-coverage() {
+	go test -coverprofile=c.out $1 >& /dev/null
+	go tool cover -func=c.out
+}
