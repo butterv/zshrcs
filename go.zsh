@@ -25,6 +25,8 @@ function pb-gw-gen() {
 }
 
 function go-test-coverage() {
-	go test -coverprofile=c.out $1 >& /dev/null
-	go tool cover -func=c.out
+	rm -rf c.out cover.out
+	go test -tags=integration -coverprofile=c.out $1 >& /dev/null
+	cat c.out | grep -v -e "/app/impl/repository/memory" -e "/app/impl/repository/database/repository.go" > cover.out
+	go tool cover -func=cover.out
 }
