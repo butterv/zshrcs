@@ -19,6 +19,7 @@ alias docker-stop-all='docker stop $(docker ps -q)'
 
 # zsh completion
 source <(kubectl completion zsh)
+source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export EDITOR="vim"
 
