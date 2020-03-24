@@ -2,12 +2,17 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
-alias cd='cd -P | ls -F'
+# alias cd='cd -P'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
 alias v='vim'
 alias shreboot='exec $SHELL -l'
+function cdls() {
+	cd $1;
+	ls -F;
+}
+alias cd=cdls
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
