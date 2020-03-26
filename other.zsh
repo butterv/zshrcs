@@ -9,8 +9,8 @@ alias mkdir='mkdir -p'
 alias v='vim'
 alias shreboot='exec $SHELL -l'
 function cdls() {
-	cd $1;
-	ls -F;
+	cd -P $1
+	ls -F
 }
 alias cd=cdls
 
