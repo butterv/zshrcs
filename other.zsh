@@ -2,7 +2,6 @@ alias ls='ls -F'
 alias la='ls -a'
 alias ll='ls -l'
 alias rm='rm -i'
-# alias cd='cd -P'
 alias cp='cp -i'
 alias mv='mv -i'
 alias mkdir='mkdir -p'
@@ -13,12 +12,14 @@ function cdls() {
 	ls -F
 }
 alias cd=cdls
+alias simu='open -a Simulator'
 
 export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH=$PATH:$HOME/google-cloud-sdk/bin
 export PATH="$PATH:$HOME/development/flutter/bin"
+export PATH=$PATH:$HOME/Library/Android/sdk/platform-tools
 
 alias docker-stop-all='docker stop $(docker ps -q)'
 

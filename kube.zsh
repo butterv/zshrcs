@@ -10,4 +10,6 @@
 #alias mp-delete="multipass delete" # e.g. 'mp-delete microk8s-vm'
 #alias mp-purge="multipass purge"
 
-#alias kubectl="multipass exec microk8s-vm -- sudo microk8s.kubectl" # Execute kubectl command on VM
+alias k='kubectl'
+alias kg='kubectl get'
+alias kd='kubectl delete'
