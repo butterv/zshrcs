@@ -9,6 +9,9 @@ alias v='vim'
 alias shreboot='exec $SHELL -l'
 function cdls() {
 	cd -P $1
+	echo "===== pwd ====="
+	pwd
+	echo "===== ls ====="
 	ls -F
 }
 alias cd=cdls
