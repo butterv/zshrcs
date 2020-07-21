@@ -11,5 +11,9 @@
 #alias mp-purge="multipass purge"
 
 alias k='kubectl'
-alias kg='kubectl get'
-alias kd='kubectl delete'
+# alias kg='kubectl get'
+# alias kd='kubectl delete'
+
+alias k-get-contexts='kubectl config get-contexts'
+# kubectl uses config of local
+alias k-use-local='kubectl config use-context docker-desktop'
