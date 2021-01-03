@@ -30,6 +30,6 @@ alias gitta='git tag'
 
 alias hbr='hub browse'
 alias gcd='cd $(ghq root)/$(ghq list | peco)'
-alias istsh='cd $GOPATH/src/github.com/istsh'
+alias butterv='cd $GOPATH/src/github.com/butterv'
 
 alias gitdioo='sh $HOME/git/istsh/commands/git-diff-read-one-by-one.sh'
