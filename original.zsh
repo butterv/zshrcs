@@ -47,9 +47,13 @@ alias butterv-go='cd $GOPATH/src/github.com/butterv'
 export EDITOR="vim"
 export PATH=/usr/local/bin:$PATH
 export GOPATH="$HOME/go"
+export GOENV_DISABLE_GOPATH=1
 export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"
 export GO111MODULE=on
 export PATH="$HOME/.anyenv/bin:$PATH"
+export CARGO_HOME="$HOME/.cargo"
+export PATH="$CARGO_HOME/bin:$PATH"
+
 eval "$(anyenv init -)"
 alias anyenv-l="anyenv install -l"
 alias anyenv-gitpu="anyenv git pull"
@@ -115,3 +119,6 @@ function pilogin() {
 		* ) echo "unknown host" ;;
 	esac
 }
+
+eval "$(gh completion -s zsh)"
+
