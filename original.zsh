@@ -1,13 +1,11 @@
 alias 1password='open -a /Applications/1Password\ 7.app'
-alias authy='open -a /Applications/Authy\ Desktop.app'
-alias chrome='open -a /Applications/Google\ Chrome.app'
+alias arc='open -a /Applications/Arc.app'
 # alias goland='/usr/local/bin/goland'
 alias notion='open -a /Applications/Notion.app'
-alias pocket='open -a /Applications/Pocket.app'
 alias slack='open -a /Applications/Slack.app'
 alias sublime='open -a /Applications/Sublime\ Text.app'
-alias tableplus='open -a /Applications/TablePlus.app'
 alias vscode='open -a /Applications/Visual\ Studio\ Code.app'
+alias sequel-ace='open -a /Applications/Sequel\ Ace.app'
 
 alias gitad='git add'
 alias gitbl='git blame'
@@ -53,6 +51,9 @@ export GO111MODULE=on
 export PATH="$HOME/.anyenv/bin:$PATH"
 export CARGO_HOME="$HOME/.cargo"
 export PATH="$CARGO_HOME/bin:$PATH"
+export PATH="$PATH:$HOME/development/flutter/bin"
+export PATH="$PATH:$HOME/.pub-cache/bin"
+export FLUTTER_GIT_URL="ssh://git@github.com/flutter/flutter.git"
 
 eval "$(anyenv init -)"
 alias anyenv-l="anyenv install -l"
@@ -80,8 +81,6 @@ function pb-gw-gen() {
 
 alias docker-stop-all='docker stop $(docker ps -q)'
 alias k='kubectl'
-# alias kg='kubectl get'
-# alias kd='kubectl delete'
 alias k-get-contexts='kubectl config get-contexts'
 alias k-use-local='kubectl config use-context docker-desktop'
 
@@ -122,3 +121,17 @@ function pilogin() {
 
 eval "$(gh completion -s zsh)"
 
+alias myrand="od -An -tu4 -N4 /dev/random | tr -d ' ' | tr -d '\n'"
+
+fuction git-pcake() {
+	git config --local user.name pcake-l
+	git config --local user.email satoshi.inoue+github@pieceofcake.llc
+	git config --local user.signingkey 'key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDtfDFY5zn1RMQGdftoEG2UGFQ35x/3bB8OXarU5o/hT github3104xniiapm+pcake@gmail.com'
+	git config --local gpg.ssh.allowedSignersFile ~/.ssh/git_sign_pcake
+}
+
+alias flutter-create='flutter create -i swift -a kotlin'
+
+function randomchars() {
+	cat /dev/urandom |LC_CTYPE=C tr -dc '[:alnum:]' | fold -w $1 | head -n 1
+}
