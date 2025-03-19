@@ -37,6 +37,10 @@ alias gitstp='git stash pop'
 alias gitsts='git stash save'
 alias gitsw='git switch'
 alias gitta='git tag'
+git config --global alias.current-hash-short "show --format='%h' --no-patch"
+git config --global alias.current-hash "show --format='%H' --no-patch"
+alias gitcuh='git current-hash'
+alias gitcuhs='git current-hash-short'
 
 alias blog='cd $HOME/git/butterv/blog'
 alias butterv='cd $HOME/git/butterv'
@@ -64,20 +68,6 @@ alias goenv-gl="goenv global"
 alias goenv-i="goenv install"
 alias goenv-l="goenv install -l"
 alias goenv-lo="goenv local"
-function go-test-coverage() {
-	rm -rf c.out cover.out
-	go test -tags=integration -coverprofile=c.out $1 >& /dev/null
-	cat c.out | grep -v -e "/app/handler" -e "/app/impl/repository/memory" -e "/app/impl/repository/database/repository.go" > cover.out
-	go tool cover -func=cover.out
-}
-function pb-gen() {
-	# pb-gen ./app/proto/v1 user.proto
-	protoc -I$1 -I$GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.11.3/third_party/googleapis --go_out=plugins=grpc:$1/pb $2
-}
-function pb-gw-gen() {
-	# pb-gw-gen ./app/proto/v1 user.proto
-	protoc -I$1 -I$GOPATH/pkg/mod/github.com/grpc-ecosystem/grpc-gateway@v1.11.3/third_party/googleapis --grpc-gateway_out=logtostderr=true:$1/pb $2
-}
 
 alias docker-stop-all='docker stop $(docker ps -q)'
 alias k='kubectl'
@@ -123,9 +113,16 @@ eval "$(gh completion -s zsh)"
 
 alias myrand="od -An -tu4 -N4 /dev/random | tr -d ' ' | tr -d '\n'"
 
+fuction git-butterv() {
+	git config --local user.name butterv
+	git config --local user.email github3104xniiapm@gmail.com
+	git config --local user.signingkey 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEbcsZgQjDFwRv72YhpRYv1e71Y0i/FIBX+itH09QgZB github3104xniiapm@gmail.com'
+	git config --local gpg.ssh.allowedSignersFile ~/.ssh/git_sign
+}
+
 fuction git-pcake() {
 	git config --local user.name pcake-l
-	git config --local user.email satoshi.inoue+github@pieceofcake.llc
+	git config --local user.email github3104xniiapm+pcake@gmail.com
 	git config --local user.signingkey 'key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDtfDFY5zn1RMQGdftoEG2UGFQ35x/3bB8OXarU5o/hT github3104xniiapm+pcake@gmail.com'
 	git config --local gpg.ssh.allowedSignersFile ~/.ssh/git_sign_pcake
 }
